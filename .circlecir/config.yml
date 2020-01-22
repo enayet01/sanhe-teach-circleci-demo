@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.8
+    steps:
+      - checkout
+      - run:
+        name:
+        command: |
+          echo "build success"
+  unittest:
+    docker:
+      - image: circleci/python:3.6.8
+    steps:
+      - checkout
+      - run:
+        name:
+        command: |
+          echo "unittest success"
+  integration-test:
+    docker:
+      - image: circleci/python:3.6.8
+    steps:
+      - checkout
+      - run:
+        name:
+        command: |
+          echo "integration-test success"
+
+  deploy:
+    docker:
+      - image: circleci/python:3.6.8
+    steps:
+      - checkout
+      - run:
+        name:
+        command: |
+          echo "deploy success"
+workflows:
+  version: 2
+  my-workflow:
+    jobs:
+      - build
+      - unittest:
+          requires:
+            - build
+      - integration-test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - unittest
+            - integration-test
