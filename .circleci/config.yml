@@ -33,9 +33,9 @@ jobs:
     steps:
       - checkout
       - run:
-        name:
-        command: |
-          echo "deploy success"
+          name:
+          command: |
+            echo "deploy success"
 workflows:
   version: 2
   my-workflow:
