@@ -6,28 +6,27 @@ jobs:
     steps:
       - checkout
       - run:
-        name:
-        command: |
-          echo "build success"
+          name:
+          command: |
+            echo "build success"
   unittest:
     docker:
       - image: circleci/python:3.6.8
     steps:
       - checkout
       - run:
-        name:
-        command: |
-          echo "unittest success"
+          name:
+          command: |
+            echo "unittest success"
   integration-test:
     docker:
       - image: circleci/python:3.6.8
     steps:
       - checkout
       - run:
-        name:
-        command: |
-          echo "integration-test success"
-
+          name:
+          command: |
+            echo "integration-test success"
   deploy:
     docker:
       - image: circleci/python:3.6.8
